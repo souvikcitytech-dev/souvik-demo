@@ -1,6 +1,5 @@
 ﻿.table {
     border-radius: 5px;
-    width: 70%;
     margin: 0px auto;
     float: none;
 }
@@ -15,7 +14,6 @@
 }
 
 .divfooter {
-    height: 200px;
 }
 
 #divajaxCall h3 {
@@ -24,8 +22,6 @@
 
 #divScroll {
     overflow: scroll;
-    height: 500px;
-    width: 90%;
     border: inherit;
 }
 #divScroll h3 {
