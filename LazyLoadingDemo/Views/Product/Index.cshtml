@@ -1,0 +1,65 @@
+﻿@model IEnumerable<LazyLoadingDemo.Product>
+
+<div class="jumbotron">
+    <h2>Lazy Loading Example Using Ajax in MVC Application</h2>
+    <p class="lead">
+        <br />
+        <h4>This is home page where we will try to load partial view.</h4>
+        <span class="text-primary">
+            Once user scroll down page then scroll event gets fire and append records to existing table.
+            It loads only 20 records at a time based on each scroll down event
+        </span>.
+    </p>
+</div>
+
+<div class="table-responsive col-md-12" id="divajaxCall">
+    <div class="jumbotronajaxdiv">
+        <h3>Records get append to this table once user scroll down page.</h3>
+    </div>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductDescription)
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                @Html.Partial("~/Views/Product/ProductList", Model)
+            }
+        </tbody>
+    </table>
+    <div class="row">
+        <div id="loading" style="text-align:center; padding:0 0 0 0">
+            <img src='~/Content/progress-loader1.gif' />
+        </div>
+    </div>
+    <div class="divfooter">
+    </div>
+</div>
+<div id="divHide"></div>
+@section scripts{
+    <script src="~/Scripts/lazyLoading.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("div#loading").hide();
+        });
+        var ajaxCallUrl = '@Url.RouteUrl("ProductDataList")';
+
+        $(window).scroll(scrollHandler);
+    </script>
+}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="~/Content/CustomStyle.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>

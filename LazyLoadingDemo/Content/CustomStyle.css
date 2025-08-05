@@ -1,0 +1,33 @@
+﻿.table {
+    border-radius: 5px;
+    width: 70%;
+    margin: 0px auto;
+    float: none;
+}
+
+.jumbotronajaxdiv {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+    color: inherit;
+    background-color: #eee;
+    border-radius: 5px;
+}
+
+.divfooter {
+    height: 200px;
+}
+
+#divajaxCall h3 {
+    text-align: center;
+}
+
+#divScroll {
+    overflow: scroll;
+    height: 500px;
+    width: 90%;
+    border: inherit;
+}
+#divScroll h3 {
+        text-align: center;
+}
